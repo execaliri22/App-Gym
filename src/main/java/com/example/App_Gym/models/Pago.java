@@ -10,8 +10,10 @@ import java.time.LocalDateTime;
 public class Pago {
     @Id
     private String id;
-    private String usuarioId; // Referencia al ID del Usuario
-    private Double monto;
-    private LocalDateTime fechaPago;
-    private String metodoPago;
+    private String usuarioId;        // Referencia al ID del Usuario
+    private Double monto;            // Monto del abono
+    private LocalDateTime fechaPago; // Fecha en la que se realizó el cobro
+    private LocalDateTime fechaVencimiento; // Cuándo vence la cuota
+    private String metodoPago;       // Ej: "Efectivo", "Tarjeta"
+    private String estado;           // "PAGADO", "PENDIENTE", "VENCIDO"
 }

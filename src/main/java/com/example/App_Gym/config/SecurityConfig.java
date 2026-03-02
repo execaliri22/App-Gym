@@ -76,6 +76,14 @@ public class SecurityConfig {
                 // --- REGLAS DE ADMINISTRACIÓN ---
                 // Solo administradores pueden gestionar usuarios, promover roles y ver estadísticas
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                
+                // --- NUEVAS REGLAS DE COBROS (ADMIN) ---
+                // Solo el administrador puede registrar, editar o eliminar cobros
+                .requestMatchers("/api/cobros/**").hasRole("ADMIN")
+
+                // --- REGLAS DE PAGOS (SOCIO) ---
+                // El socio consulta sus pagos, el admin puede ver todos si fuera necesario
+                .requestMatchers("/api/pagos/mis-pagos").authenticated()
                                 
                 // Cualquier otra ruta requiere que el usuario esté autenticado
                 .anyRequest().authenticated()
