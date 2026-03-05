@@ -10,8 +10,9 @@ import java.time.LocalDateTime;
 public class Mensaje {
     @Id
     private String id;
-    private String remitenteId;
-    private String destinatarioId;
+    private String remitenteEmail;    // Email de quien envía
+    private String destinatarioEmail; // Email de quien recibe
     private String contenido;
     private LocalDateTime fechaEnvio = LocalDateTime.now();
+    private boolean leido = false;
 }
