@@ -84,7 +84,14 @@ public class SecurityConfig {
                 // --- REGLAS DE PAGOS (SOCIO) ---
                 // El socio consulta sus pagos, el admin puede ver todos si fuera necesario
                 .requestMatchers("/api/pagos/mis-pagos").authenticated()
-                                
+
+               // --- REGLAS PARA EL CHAT ---
+                // Permite que el socio envíe preguntas y vea su propio historial
+                .requestMatchers("/api/chat/preguntar", "/api/chat/mis-mensajes").authenticated()
+
+                // Solo el administrador puede responder o ver chats de otros socios específicos
+                .requestMatchers("/api/chat/admin/**").hasRole("ADMIN")
+
                 // Cualquier otra ruta requiere que el usuario esté autenticado
                 .anyRequest().authenticated()
             )
