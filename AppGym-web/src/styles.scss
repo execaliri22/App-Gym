@@ -1,0 +1,51 @@
+// --- VARIABLES GLOBALES DEL GIMNASIO ---
+$bg-dark: #121214;       // Fondo de la app
+$bg-card: #1a1a1e;       // Fondo de las tarjetas/formularios
+$primary-color: #ff5722;  // Naranja para botones y enlaces
+$primary-hover: #e64a19;  // Naranja más oscuro para el hover
+$text-main: #ffffff;      // Texto principal
+$text-muted: #8d8d99;     // Texto secundario
+$border-color: #29292e;   // Bordes sutiles
+
+// Estados
+$error-color: #f75a68;    // Rojo para errores
+$success-color: #00b37e;  // Verde para éxito
+
+// Tipografía y Estilos
+$font-main: 'Roboto', sans-serif;
+$radius: 8px;
+$transition: all 0.3s ease;
+
+// --- ESTILOS BASE DEL NAVEGADOR ---
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-color: $bg-dark;
+  color: $text-main;
+  font-family: $font-main;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Barra de scroll personalizada (opcional)
+.scroll-custom {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $bg-dark;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $border-color;
+    border-radius: 3px;
+    &:hover {
+      background: $primary-color;
+    }
+  }
+}

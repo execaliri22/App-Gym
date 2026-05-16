@@ -1,0 +1,124 @@
+// Importamos el archivo global styles.scss tratándolo como un módulo
+@use '../../../../styles' as global;
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 40px);
+  padding: 20px;
+}
+
+.login-card {
+  background-color: global.$bg-card; // Usamos el prefijo 'global.' para acceder
+  border: 1px solid global.$border-color;
+  border-radius: global.$radius;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  h2 {
+    color: global.$text-main;
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  p {
+    color: global.$text-muted;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: global.$text-main;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: global.$bg-dark;
+    border: 1px solid global.$border-color;
+    border-radius: global.$radius;
+    color: global.$text-main;
+    font-size: 14px;
+    transition: global.$transition;
+
+    &:focus {
+      outline: none;
+      border-color: global.$primary-color;
+    }
+
+    &::placeholder {
+      color: #575768;
+    }
+  }
+
+  .error-text {
+    color: global.$error-color;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+}
+
+.alert-error {
+  background-color: rgba(global.$error-color, 0.1);
+  border: 1px solid global.$error-color;
+  color: global.$error-color;
+  padding: 12px;
+  border-radius: global.$radius;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: global.$primary-color;
+  color: global.$text-main;
+  border: none;
+  border-radius: global.$radius;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: global.$transition;
+
+  &:hover:not(:disabled) {
+    background-color: global.$primary-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.login-footer {
+  margin-top: 24px;
+  font-size: 14px;
+  color: global.$text-muted;
+
+  a {
+    color: global.$primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: global.$transition;
+
+    &:hover {
+      color: global.$primary-hover;
+      text-decoration: underline;
+    }
+  }
+}

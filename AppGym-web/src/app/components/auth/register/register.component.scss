@@ -1,0 +1,138 @@
+@use '../../../../styles' as global;
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.register-card {
+  background-color: global.$bg-card;
+  border: 1px solid global.$border-color;
+  border-radius: global.$radius;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  h2 {
+    color: global.$text-main;
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  p {
+    color: global.$text-muted;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: global.$text-main;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: global.$bg-dark;
+    border: 1px solid global.$border-color;
+    border-radius: global.$radius;
+    color: global.$text-main;
+    font-size: 14px;
+    transition: global.$transition;
+
+    &:focus {
+      outline: none;
+      border-color: global.$primary-color;
+    }
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+
+    option {
+      background-color: global.$bg-card;
+      color: global.$text-main;
+    }
+  }
+}
+
+.alert-success {
+  background-color: rgba(global.$success-color, 0.1);
+  border: 1px solid global.$success-color;
+  color: global.$success-color;
+  padding: 12px;
+  border-radius: global.$radius;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.alert-error {
+  background-color: rgba(global.$error-color, 0.1);
+  border: 1px solid global.$error-color;
+  color: global.$error-color;
+  padding: 12px;
+  border-radius: global.$radius;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: global.$primary-color;
+  color: global.$text-main;
+  border: none;
+  border-radius: global.$radius;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: global.$transition;
+
+  &:hover:not(:disabled) {
+    background-color: global.$primary-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.register-footer {
+  margin-top: 24px;
+  font-size: 14px;
+  color: global.$text-muted;
+
+  a {
+    color: global.$primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: global.$transition;
+
+    &:hover {
+      color: global.$primary-hover;
+      text-decoration: underline;
+    }
+  }
+}
