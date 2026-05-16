@@ -1,0 +1,125 @@
+<header class="welcome-section">
+  <h1>Bienvenido a AppGym</h1>
+  <p class="subtitle">Panel de Control General del Administrador</p>
+</header>
+
+<section class="metrics-grid">
+  
+  <div class="metric-card">
+    <div class="icon-container">
+      <lucide-icon [img]="icons.Users" class="card-icon-svg"></lucide-icon>
+    </div>
+    <div class="card-info">
+      <h3>{{ stats.sociosActivos }}</h3>
+      <p>Socios Activos</p>
+    </div>
+  </div>
+
+  <div class="metric-card border-accent">
+    <div class="icon-container accent-bg">
+      <lucide-icon [img]="icons.ShieldAlert" class="card-icon-svg accent-text"></lucide-icon>
+    </div>
+    <div class="card-info">
+      <h3>{{ stats.pagosPendientes }}</h3>
+      <p>Cuotas Vencidas / Alertas</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="icon-container messages-bg">
+      <lucide-icon [img]="icons.MessageSquare" class="card-icon-svg messages-text"></lucide-icon>
+    </div>
+    <div class="card-info">
+      <h3>{{ stats.chatsSinResponder }}</h3>
+      <p>Consultas Pendientes</p>
+    </div>
+  </div>
+  
+</section>
+
+<section class="quick-actions-section">
+  
+  <div class="section-title-container">
+    <div class="title-accent-bar"></div>
+    <div class="title-text-group">
+      <h2 class="section-title">Acciones Rápidas del Administrador</h2>
+      <p class="section-subtitle">Accesos operativos directos para la gestión diaria de la sede</p>
+    </div>
+  </div>
+  
+  <div class="actions-grid">
+    
+    <div class="action-card">
+      <div class="action-card-body">
+        <div class="action-header">
+          <lucide-icon [img]="icons.CreditCard" class="action-avatar-svg"></lucide-icon>
+          <h3>Registrar Nuevo Pago</h3>
+        </div>
+        <p class="action-description">Carga un cobro mensual rápido usando el número de documento del socio directamente.</p>
+      </div>
+
+      <div class="action-card-center">
+        <lucide-icon [img]="icons.CreditCard" [size]="130" class="mid-card-icon"></lucide-icon>
+      </div>
+
+      <div class="action-card-footer">
+        <button routerLink="/admin/cobros" class="btn-gym-primary">Registrar Cobro</button>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-body">
+        <div class="action-header">
+          <lucide-icon [img]="icons.Dumbbell" class="action-avatar-svg"></lucide-icon>
+          <h3>Crear Rutina Entrenamiento</h3>
+        </div>
+        <p class="action-description">Crea rutinas de entrenamiento personalizadas para los socios según sus objetivos y nivel de condición física.</p>
+      </div>
+
+      <div class="action-card-center">
+        <lucide-icon [img]="icons.Dumbbell" [size]="130" class="mid-card-icon"></lucide-icon>
+      </div>
+
+      <div class="action-card-footer">
+        <button routerLink="/admin/rutinas" class="btn-gym-primary">Crear Rutina Entrenamiento</button>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-body">
+        <div class="action-header">
+          <lucide-icon [img]="icons.Apple" class="action-avatar-svg"></lucide-icon>
+          <h3>Crear Rutina Alimentacion</h3>
+        </div>
+        <p class="action-description">Crea rutinas de alimentacion personalizadas para los socios según sus objetivos y nivel de condición física.</p>
+      </div>
+
+      <div class="action-card-center">
+        <lucide-icon [img]="icons.Apple" [size]="130" class="mid-card-icon"></lucide-icon>
+      </div>
+
+      <div class="action-card-footer">
+        <button routerLink="/admin/rutinas" class="btn-gym-primary">Crear Rutina Alimentacion</button>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-body">
+        <div class="action-header">
+          <lucide-icon [img]="icons.Megaphone" class="action-avatar-svg"></lucide-icon>
+          <h3>Crear Avisos</h3>
+        </div>
+        <p class="action-description">Crea avisos importantes para los socios según sus objetivos y nivel de condición física.</p>
+      </div>
+
+      <div class="action-card-center">
+        <lucide-icon [img]="icons.Megaphone" [size]="130" class="mid-card-icon"></lucide-icon>
+      </div>
+
+      <div class="action-card-footer">
+        <button routerLink="/admin/avisos" class="btn-gym-primary">Crear Aviso</button>
+      </div>
+    </div>
+    
+  </div>
+</section>
