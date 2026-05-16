@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 
 @SuppressWarnings("unused")
@@ -62,6 +63,35 @@ public class AuthService {
             return new AuthResponse(token, user.getEmail(), user.getNombreCompleto());
         } else {
             throw new RuntimeException("Contraseña incorrecta");
+        }
+    }
+
+   public void crearAdministradorSiNoExiste() {
+        String emailAdmin = "admin@gym.com";
+        Optional<Usuario> adminOpt = usuarioRepo.findByEmail(emailAdmin);
+        
+        if (adminOpt.isEmpty()) {
+            Usuario admin = new Usuario();
+            admin.setEmail(emailAdmin);
+            admin.setNombreCompleto("Administrador del Gym");
+            admin.setPassword(passwordEncoder.encode("admin123")); // Contraseña fija: admin123
+            admin.setSede("Sede Central");
+            admin.setObjetivo("Administración");
+            admin.setDni("00000000");
+            
+            admin.setEstadoSocio(true); 
+            
+            admin.setRoles(Collections.singleton(Rol.ROLE_ADMIN));
+            
+            usuarioRepo.save(admin);
+            System.out.println("====== ADMINISTRADOR CREADO CON ÉXITO (admin@gym.com / admin123) ======");
+        } else {
+            Usuario admin = adminOpt.get();
+            admin.setPassword(passwordEncoder.encode("admin123"));
+            admin.setRoles(Collections.singleton(Rol.ROLE_ADMIN));
+            admin.setEstadoSocio(true); 
+            usuarioRepo.save(admin);
+            System.out.println("====== CONTRASEÑA DE ADMINISTRADOR RESTABLECIDA A 'admin123' ======");
         }
     }
 }
