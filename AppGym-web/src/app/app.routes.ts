@@ -1,11 +1,18 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  // Por ahora redirigimos la raíz al login hasta tener los dashboards
+  
+  // RUTA DEL DASHBOARD DE ADMINISTRADOR
+  { path: 'admin/dashboard', component: AdminDashboardComponent },
+  
+  // Redirección de la raíz al login
   { path: '', redirectTo: 'login', pathMatch: 'full' }, 
-  { path: '**', redirectTo: 'login' }
+  
+  // Ruta comodín por si escriben cualquier otra URL inválida
+  { path: '**', redirectTo: 'login' },
 ];

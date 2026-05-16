@@ -1,0 +1,166 @@
+// PALETA DE COLORES CALCADA DE APPGYM
+$bg-black-workspace: #121212;     // Fondo de pantalla general negro pleno
+$bg-card-gym: #1e1e1e;           // Fondo gris oscuro mate de tus tarjetas e interfaces
+$bg-blocks-inner: #141414;       // Fondo interno de los bloques de estadísticas e inputs
+$orange-terracota: #9c3d21;      // Tu color insignia cobrizo terracota
+$orange-terracota-hover: #823119;
+$text-white: #ffffff;
+$text-gray: #a0a0a0;
+$border-soft: rgba(255, 255, 255, 0.05);
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: $bg-black-workspace;
+  color: $text-white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.app-gym-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-black-workspace;
+}
+
+// NAVBAR SUPERIOR XL (AGRANDADO Y CENTRADO)
+.gym-navbar {
+  height: 85px; 
+  background-color: $bg-card-gym;
+  border-bottom: 1px solid $border-soft;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-sizing: border-box;
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    .btn-toggle-menu {
+      background: transparent;
+      border: none;
+      color: $text-white;
+      font-size: 32px; 
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-section-title {
+      font-size: 18px; 
+      font-weight: 600;
+      color: $text-white;
+    }
+  }
+
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    
+    .navbar-brand {
+      font-size: 30px; 
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      .brand-accent { color: $orange-terracota; }
+    }
+  }
+
+  .navbar-right {
+    .role-badge {
+      background-color: rgba($orange-terracota, 0.15);
+      border: 1px solid rgba($orange-terracota, 0.3);
+      color: $orange-terracota;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 6px;
+    }
+  }
+}
+
+// MENÚ LATERAL DESPLEGABLE COMPLETAMENTE ALTO
+.sidebar-backdrop {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+}
+
+.sidebar-drawer {
+  position: fixed;
+  top: 0; left: -320px; width: 320px; height: 100vh;
+  background-color: $bg-card-gym;
+  border-right: 1px solid $border-soft;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.open { left: 0; }
+
+  .drawer-header {
+    display: flex; align-items: center; position: relative;
+    .admin-avatar {
+      width: 50px; height: 50px; background-color: $orange-terracota;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .admin-details {
+      margin-left: 14px;
+      .admin-name { margin: 0; font-size: 16px; font-weight: 600; }
+      .admin-email { margin: 4px 0 0 0; font-size: 13px; color: $text-gray; }
+    }
+    .btn-close-drawer {
+      position: absolute; right: 0; background: transparent; border: none; color: $text-gray; font-size: 28px; cursor: pointer;
+    }
+  }
+
+  .drawer-divider { border: 0; height: 1px; background-color: $border-soft; margin: 24px 0; }
+
+  .drawer-nav {
+    flex: 1; display: flex; flex-direction: column; gap: 8px;
+    .nav-item {
+      display: flex; align-items: center; padding: 14px 18px; color: $text-gray; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500;
+      .nav-icon { margin-right: 14px; font-size: 18px; }
+      &:hover { background-color: rgba(255, 255, 255, 0.02); color: $text-white; }
+      &.active { background-color: rgba($orange-terracota, 0.1); color: $orange-terracota; font-weight: 600; border-left: 4px solid $orange-terracota; }
+    }
+  }
+
+  .drawer-footer {
+    border-top: 1px solid $border-soft; padding-top: 20px;
+    .btn-drawer-logout {
+      width: 100%; background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: #ff6b6b; padding: 14px; border-radius: 6px; font-weight: 600; cursor: pointer;
+    }
+  }
+}
+
+// ESPACIO DE TRABAJO AMPLIO (PANORÁMICO COMPLETO)
+.dashboard-workspace {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 50px 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.dashboard-main-card {
+  width: 100%;
+  max-width: 2000px; // <--- Agrandado a 1400px para que ocupe de punta a punta la pantalla
+  background-color: transparent; // Quitamos el fondo gris para que el contenido respire sobre el fondo negro de la app
+  border: none; // Sin bordes molestos en el wrapper principal
+  padding: 0;
+  box-sizing: border-box;
+}

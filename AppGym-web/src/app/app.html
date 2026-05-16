@@ -1,1 +1,89 @@
-<router-outlet></router-outlet>
+<div class="app-gym-layout" *ngIf="isAdminRoute(); else publicRoute">
+  
+  <nav class="gym-navbar">
+    <div class="navbar-left">
+      <button class="btn-toggle-menu" (click)="toggleMenu()">
+        <span>☰</span>
+      </button>
+      <span class="navbar-section-title">{{ getSectionTitle() }}</span>
+    </div>
+    
+    <div class="navbar-center">
+      <span class="navbar-brand">App<span class="brand-accent">Gym</span></span>
+    </div>
+    
+    <div class="navbar-right">
+      <span class="role-badge">ADMINISTRADOR</span>
+    </div>
+  </nav>
+
+  <div class="sidebar-backdrop" *ngIf="isMenuOpen" (click)="toggleMenu()"></div>
+  
+  <aside class="sidebar-drawer" [class.open]="isMenuOpen">
+    <div class="drawer-header">
+      <div class="admin-avatar">AI</div>
+      <div class="admin-details">
+        <p class="admin-name">{{ adminNombre }}</p>
+        <p class="admin-email">{{ adminEmail }}</p>
+      </div>
+      <button class="btn-close-drawer" (click)="toggleMenu()">×</button>
+    </div>
+
+    <hr class="drawer-divider" />
+
+    <nav class="drawer-nav">
+      <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.LayoutDashboard" class="nav-icon"></lucide-icon> Inicio
+      </a>
+      
+      <a routerLink="/admin/usuarios" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.Users" class="nav-icon"></lucide-icon> Gestión de Usuarios
+      </a>
+      
+      <a routerLink="/admin/administradores" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.ShieldAlert" class="nav-icon"></lucide-icon> Gestión de Administradores
+      </a>
+      
+      <a routerLink="/admin/cobros" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.CreditCard" class="nav-icon"></lucide-icon> Registrar Cobro
+      </a>
+      
+      <a routerLink="/admin/planes" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.Dumbbell" class="nav-icon"></lucide-icon> Rutinas de Entrenamiento
+      </a>
+      
+      <a routerLink="/admin/dietas" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.Apple" class="nav-icon"></lucide-icon> Plan de alimentación
+      </a>
+      
+      <a routerLink="/admin/avisos" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.Megaphone" class="nav-icon"></lucide-icon> Gestión de Avisos
+      </a>
+      
+      <a routerLink="/admin/chats" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.MessageSquare" class="nav-icon"></lucide-icon> Chats
+      </a>
+      
+      <a routerLink="/admin/pagos" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+        <lucide-icon [img]="icons.DollarSign" class="nav-icon"></lucide-icon> Gestión de Pagos
+      </a>
+    </nav>
+
+    <div class="drawer-footer">
+      <button class="btn-drawer-logout" (click)="logout()">
+        <lucide-icon [img]="icons.LogOut" class="nav-icon"></lucide-icon> Cerrar Sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="dashboard-workspace">
+    <div class="dashboard-main-card">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+</div>
+
+<ng-template #publicRoute>
+  <router-outlet></router-outlet>
+</ng-template>
