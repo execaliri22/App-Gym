@@ -3,6 +3,7 @@ package com.example.App_Gym.models;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Transient;
 import java.time.LocalDateTime;
 
 @Data
@@ -16,4 +17,13 @@ public class Pago {
     private LocalDateTime fechaVencimiento; // Cuándo vence la cuota
     private String metodoPago;       // Ej: "Efectivo", "Tarjeta"
     private String estado;           // "PAGADO", "PENDIENTE", "VENCIDO"
+
+    @Transient
+    private String nombreUsuario;
+
+    @Transient
+    private String dniUsuario;
+
+    @Transient
+    private String emailUsuario;
 }

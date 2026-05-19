@@ -1,0 +1,257 @@
+// ==========================================
+// VARIABLES DE ESTILO DE ALTA FIDELIDAD
+// ==========================================
+$bg-blocks-inner: #141416;         
+$terracota-gym: #9c3d21;          
+$terracota-hover: #b84a2b;         
+$text-white: #ffffff;
+$text-gray: #9da4b0;               
+$border-soft: rgba(255, 255, 255, 0.03); 
+$border-accent-glow: rgba(156, 61, 33, 0.4);
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// SECCIÓN DE BIENVENIDA / ENCABEZADO
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  animation: fadeIn 0.6s ease-out;
+  flex-shrink: 0;
+
+  .title-group {
+    h1 { 
+      font-size: 34px; 
+      font-weight: 800; 
+      color: $text-white;
+      margin: 0 0 8px 0; 
+      letter-spacing: -0.8px;
+      background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle { 
+      color: $text-gray; 
+      font-size: 15px; 
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+}
+
+// BOTÓN PREMIUM "NUEVO COBRO"
+.btn-gym-primary {
+  background: linear-gradient(135deg, $terracota-gym 0%, #bd4b2a 100%);
+  color: $text-white; 
+  border: none; 
+  padding: 12px 22px; 
+  border-radius: 10px; 
+  font-size: 14px; 
+  font-weight: 600; 
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease; 
+  box-shadow: 0 4px 15px rgba(156, 61, 33, 0.25);
+
+  svg { width: 18px; height: 18px; fill: currentColor; }
+
+  &:hover { 
+    background: linear-gradient(135deg, #b84a2b 0%, $terracota-gym 100%); 
+    box-shadow: 0 6px 20px rgba(156, 61, 33, 0.4); 
+    transform: translateY(-1px);
+  }
+}
+
+// CONTENEDOR MÁSTER DE LA TABLA COHERENTE CON REJILLAS OSCURAS
+.table-container {
+  background: linear-gradient(145deg, #1a1a1f 0%, $bg-blocks-inner 100%);
+  border: 1px solid $border-soft;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: fadeIn 0.7s ease-out;
+
+  .scrollable-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    th {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 16px 24px;
+      color: $text-white;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    tbody tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.01);
+      }
+
+      td {
+        padding: 16px 24px;
+        color: $text-gray;
+        font-size: 14px;
+        vertical-align: middle;
+
+        &.font-highlight {
+          color: $text-white;
+          font-weight: 500;
+          letter-spacing: -0.2px;
+        }
+        &.amount-text {
+          color: $text-white;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// BADGES DE ESTADO ESTILIZADOS
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+
+  &.pagado { background-color: rgba(46, 213, 115, 0.1); color: #2ed573; }
+  &.pendiente { background-color: rgba(255, 165, 0, 0.1); color: #ffa502; } // ARREGLADO AQUÍ: 2L cambiado a 0
+  &.vencido { background-color: rgba(255, 71, 87, 0.1); color: #ff4757; }
+}
+
+// ACCIONES DE LA ÚLTIMA COLUMNA (BOTONES CON ICONOS)
+.actions-cell {
+  display: flex;
+  gap: 12px;
+
+  .btn-action {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $border-soft;
+    color: $text-gray;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    svg { width: 16px; height: 16px; }
+
+    &:hover {
+      transform: scale(1.05);
+      color: $text-white;
+    }
+    &.edit-btn:hover {
+      border-color: rgba(58, 134, 255, 0.3);
+      background-color: rgba(58, 134, 255, 0.08);
+      color: #3a86ff;
+    }
+    &.delete-btn:hover {
+      border-color: rgba($terracota-gym, 0.4);
+      background-color: rgba($terracota-gym, 0.08);
+      color: $terracota-hover;
+    }
+  }
+}
+
+// MODAL FLOTANTE MODERNO ACORDE AL DISEÑO OSCURO
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+
+  .modal-box {
+    background: linear-gradient(145deg, #1c1c22 0%, $bg-blocks-inner 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      h3 { color: $text-white; font-size: 20px; font-weight: 700; margin: 0; }
+      .close-btn { background: none; border: none; color: $text-gray; cursor: pointer; &:hover { color: $text-white; } }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      label { display: block; color: $text-gray; font-size: 12px; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; letter-spacing: 0.5px;}
+      
+      input, select {
+        width: 100%;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 12px;
+        border-radius: 10px;
+        color: $text-white;
+        font-size: 14px;
+        transition: border-color 0.2s ease;
+        &:focus { outline: none; border-color: $terracota-gym; }
+      }
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 28px;
+
+      .btn-cancel {
+        background: rgba(255, 255, 255, 0.04);
+        border: none; color: $text-gray;
+        padding: 12px 20px; border-radius: 10px; cursor: pointer; font-weight: 600;
+        &:hover { background: rgba(255, 255, 255, 0.08); color: $text-white; }
+      }
+    }
+  }
+}
+
+// SPINNER ANIMATION
+.spinner {
+  border: 3px solid rgba(255,255,255,0.05);
+  border-radius: 50%;
+  border-top: 3px solid $terracota-gym;
+  width: 30px; height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }

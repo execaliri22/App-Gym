@@ -53,7 +53,7 @@
       <div class="action-card-body">
         <div class="action-header">
           <lucide-icon [img]="icons.CreditCard" class="action-avatar-svg"></lucide-icon>
-          <h3>Registrar Nuevo Pago</h3>
+          <h3>Registrar Nuevo Cobro</h3>
         </div>
         <p class="action-description">Carga un cobro mensual rápido usando el número de documento del socio directamente.</p>
       </div>
@@ -63,7 +63,9 @@
       </div>
 
       <div class="action-card-footer">
-        <button routerLink="/admin/cobros" class="btn-gym-primary">Registrar Cobro</button>
+        <button routerLink="/admin/pagos" [queryParams]="{ abrirNuevo: true }" class="btn-gym-primary">
+          Registrar Cobro
+        </button>
       </div>
     </div>
 
