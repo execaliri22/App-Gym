@@ -71,7 +71,6 @@ export class AppComponent implements OnInit {
     if (currentUrl.includes('/admin/dashboard')) return 'Menu - Inicio';
     if (currentUrl.includes('/admin/usuarios')) return 'Menu - Gestión de Usuarios';
     if (currentUrl.includes('/admin/administradores')) return 'Menu - Gestión de Admins';
-    if (currentUrl.includes('/admin/cobros')) return 'Menu - Registrar Cobro';
     if (currentUrl.includes('/admin/planes')) return 'Menu - Rutinas de Entrenamiento';
     if (currentUrl.includes('/admin/dietas')) return 'Menu - Plan de alimentación';
     if (currentUrl.includes('/admin/avisos')) return 'Menu - Gestión de Avisos';

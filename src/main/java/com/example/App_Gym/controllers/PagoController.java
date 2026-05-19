@@ -22,4 +22,8 @@ public class PagoController {
         // auth.getName() obtiene el email del token JWT
         return ResponseEntity.ok(pagoService.obtenerHistorialSocio(auth.getName()));
     }
+    @GetMapping("/todos")
+    public ResponseEntity<List<Pago>> verTodosLosPagos() {
+        return ResponseEntity.ok(pagoService.obtenerTodosLosPagos());
+    }
 }
